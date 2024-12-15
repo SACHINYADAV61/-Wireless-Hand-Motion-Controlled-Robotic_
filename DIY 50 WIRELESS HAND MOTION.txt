@@ -1,0 +1,170 @@
+
+unsigned char Buff;
+
+const int in11 = 2;//m1
+const int in12 = 3;//m1
+
+const int in21 = 4;//m2
+const int in22 = 5;//m2
+
+const int in31 = 6;//m1
+const int in32 = 7;//m1
+
+const int in41 = 8;//m1
+const int in42 = 9;//m1
+
+  void setup()
+  {
+
+// delay(4000);//wating esp power stabilization
+ Serial.begin(9600);
+ 
+////////
+ 
+     
+  pinMode (in11, OUTPUT);
+  pinMode (in12, OUTPUT);
+  pinMode (in21, OUTPUT);
+  pinMode (in22, OUTPUT);
+ 
+  pinMode (in31, OUTPUT);
+  pinMode (in32, OUTPUT);
+  pinMode (in41, OUTPUT);
+  pinMode (in42, OUTPUT);
+
+  
+
+  digitalWrite(in11, LOW); 
+  digitalWrite(in12, LOW);
+  digitalWrite(in21, LOW); 
+  digitalWrite(in22, LOW);
+ 
+  digitalWrite(in31, LOW); 
+  digitalWrite(in32, LOW);
+  digitalWrite(in41, LOW); 
+  digitalWrite(in42, LOW);
+  
+ 
+  
+      Serial.println("RE SET");
+  }
+  
+  
+  void loop()
+  {
+
+    
+
+          if(Serial.available()>0)
+          {
+            
+           Buff = Serial.read();
+                  
+                 
+            if (Buff == '1') 
+                 {
+                   
+                   digitalWrite(in11, HIGH); 
+                   digitalWrite(in12, LOW);
+                    delay(100);
+                   digitalWrite(in11, LOW); 
+                   digitalWrite(in12, LOW);
+                       
+                 }
+            
+                  
+            if (Buff == '2') 
+               {
+                
+                  
+                   digitalWrite(in11, LOW); 
+                   digitalWrite(in12, HIGH);
+                   delay(100);
+                   digitalWrite(in11, LOW); 
+                   digitalWrite(in12, LOW);
+                   
+              }
+              
+
+             if(Buff == '3') 
+                  {
+                
+                   digitalWrite(in21, LOW); 
+                   digitalWrite(in22, HIGH); 
+                   delay(100);
+                   digitalWrite(in21, LOW); 
+                   digitalWrite(in22, LOW);
+           
+                   }
+
+
+                if (Buff == '4') 
+               {
+                  
+                   digitalWrite(in21, HIGH); 
+                   digitalWrite(in22, LOW);
+                   delay(100);
+                   digitalWrite(in21, LOW); 
+                   digitalWrite(in22, LOW); 
+                 
+               }
+
+               
+              
+
+                 if (Buff == '5') 
+                   {
+              
+                     digitalWrite(in31, LOW); 
+                     digitalWrite(in32, HIGH);
+                     delay(100);
+                     digitalWrite(in31, LOW); 
+                     digitalWrite(in32, LOW);
+                           
+                   }
+
+
+                if (Buff == '6') 
+                
+                   {
+                  
+                     digitalWrite(in31, HIGH); 
+                     digitalWrite(in32, LOW);
+                     delay(100);
+                     digitalWrite(in31, LOW); 
+                     digitalWrite(in32, LOW);
+                     
+                   }
+
+                 if (Buff == '7') 
+                   {
+              
+                     digitalWrite(in41, LOW); 
+                     digitalWrite(in42, HIGH);
+                     delay(100);
+                     digitalWrite(in41, LOW); 
+                     digitalWrite(in42, LOW);
+                     
+                   }
+
+
+                if (Buff == '8') 
+                
+                   {
+                  
+                   digitalWrite(in41, HIGH); 
+                   digitalWrite(in42, LOW);
+                   delay(100);   
+                   digitalWrite(in41, LOW); 
+                   digitalWrite(in42, LOW);
+                   
+                   }
+              
+                
+              
+         else{}
+       
+          
+          }
+  }      
+          
